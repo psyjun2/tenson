@@ -1,0 +1,223 @@
+/* 1. 변수 및 기본 설정 */
+:root {
+  --primary-color: #ffcc00;   /* 메인 골드 */
+  --accent-color: #ff4d00;    /* 포인트 오렌지 */
+  --dark-bg: #1a1a2e;         /* 딥 네이비 */
+  --darker-bg: #111122;       /* 더 깊은 네이비 (푸터용) */
+  --text-main: #333;
+  --white: #ffffff;
+  --gray-light: #f8f9fa;
+}
+
+* { 
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+  text-decoration: none !important;
+}
+
+body { 
+  font-family: 'Pretendard', sans-serif; 
+  line-height: 1.7; 
+  color: var(--text-main); 
+  scroll-behavior: smooth; 
+  word-break: keep-all; /* 한글 줄바꿈 최적화 */
+}
+
+/* 2. Header & Off-canvas Navigation */
+header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 15px 5%; background: #fff; position: sticky; top: 0; z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.brand-name { 
+  font-size: 2rem; font-weight: 900; color: var(--primary-color); letter-spacing: -1px;
+}
+
+.menu-toggle { font-size: 1.5rem; cursor: pointer; color: var(--dark-bg); }
+
+#off-canvas-nav {
+  position: fixed; top: 0; right: -300px; width: 300px; height: 100%;
+  background: var(--dark-bg); z-index: 2000; transition: 0.4s ease; padding: 40px 20px;
+}
+#off-canvas-nav.active { right: 0; }
+
+.nav-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; }
+.nav-logo { color: var(--primary-color); font-weight: 900; font-size: 1.5rem; }
+#menu-close { background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; }
+
+#off-canvas-nav ul li { margin-bottom: 25px; list-style: none; }
+#off-canvas-nav ul li a { color: white; font-size: 1.2rem; font-weight: 600; transition: 0.3s; }
+#off-canvas-nav ul li a:hover { color: var(--primary-color); }
+
+.nav-overlay {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5); visibility: hidden; opacity: 0; transition: 0.3s; z-index: 1500;
+  backdrop-filter: blur(3px);
+}
+.nav-overlay.active { visibility: visible; opacity: 1; }
+
+/* 3. Hero Section */
+#home {
+  height: 80vh; min-height: 600px;
+  background-color: var(--dark-bg);
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px;
+}
+
+.hero-content {
+  max-width: 550px; width: 100%;
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+              url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1200&q=80') center/cover;
+  padding: 60px 30px; border-radius: 25px; text-align: center; color: white;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.light-icon { font-size: 3.5rem; color: var(--primary-color); margin-bottom: 20px; }
+#home h2 { font-size: clamp(1.8rem, 5vw, 2.8rem); margin-bottom: 25px; font-weight: 900; line-height: 1.3; }
+#home h2 .highlight { color: var(--primary-color); }
+.hero-content .description { font-size: 1.1rem; line-height: 1.6; margin-bottom: 35px; opacity: 0.9; }
+
+.hero-btn {
+  display: inline-block; padding: 18px 50px; 
+  background: var(--primary-color); color: var(--dark-bg); 
+  border-radius: 60px; font-weight: 900; font-size: 1.1rem;
+  transition: 0.3s ease; box-shadow: 0 4px 15px rgba(255, 204, 0, 0.3);
+}
+.hero-btn:hover { transform: translateY(-5px); background: #f0c000; box-shadow: 0 8px 25px rgba(255, 204, 0, 0.4); }
+
+/* 4. Trust Section */
+#trust { padding: 100px 5%; background-color: var(--white); text-align: center; }
+#trust h2 {
+  font-size: 2.2rem; font-weight: 800; margin-bottom: 50px; color: var(--dark-bg);
+  position: relative; display: inline-block;
+}
+#trust h2::after {
+  content: ""; position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%);
+  width: 40px; height: 4px; background-color: var(--primary-color);
+}
+
+.trust-container {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px; max-width: 1100px; margin: 0 auto;
+}
+.trust-container div {
+  padding: 40px 20px; background: #fdfdfd; border: 1px solid #eee; border-radius: 15px;
+  font-size: 1.1rem; font-weight: 700; color: var(--dark-bg); transition: 0.3s ease;
+  display: flex; flex-direction: column; align-items: center; box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+}
+.trust-container div:hover { transform: translateY(-10px); border-color: var(--primary-color); box-shadow: 0 15px 30px rgba(0,0,0,0.08); }
+.trust-container div::before { content: "✔"; display: block; font-size: 1.8rem; color: var(--primary-color); margin-bottom: 15px; }
+
+/* 5. Problem Section */
+#problem { padding: 80px 5%; background-color: #fcfcfc; text-align: center; }
+#problem h2 { font-size: 2rem; font-weight: 800; margin-bottom: 40px; color: var(--dark-bg); }
+#problem ul { list-style: none; max-width: 700px; margin: 0 auto 50px; text-align: left; }
+#problem ul li {
+  padding: 15px 20px; margin-bottom: 15px; background: #fff;
+  border-left: 5px solid var(--primary-color); border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05); font-size: 1.1rem; color: #555; transition: 0.3s;
+}
+#problem ul li::before { content: "✕ "; color: var(--accent-color); font-weight: bold; margin-right: 10px; }
+#problem ul li:hover { transform: translateX(10px); }
+.problem-message {
+  font-size: 1.3rem; line-height: 1.6; color: var(--dark-bg); background: var(--primary-color);
+  display: inline-block; padding: 15px 35px; border-radius: 50px; font-weight: 700;
+}
+.problem-message strong { text-decoration: underline; color: var(--accent-color); }
+
+/* 6. Success Projects */
+#projects { padding: 80px 5%; background: var(--gray-light); }
+#projects h2 { font-size: 1.8rem; margin-bottom: 40px; text-align: center; font-weight: 800; }
+.project-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+.project {
+  position: relative; background: white; padding: 30px; border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.4s; overflow: hidden; z-index: 1;
+}
+.project-image {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  background-size: cover; background-position: center; opacity: 0;
+  transform: scale(1.1); transition: 0.4s; z-index: -1;
+}
+.project::after { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); opacity: 0; transition: 0.4s; z-index: -1; }
+.project:hover { transform: translateY(-10px); color: white; }
+.project:hover .project-image, .project:hover::after { opacity: 1; }
+.project:hover .project-image { transform: scale(1); }
+.project h3 { font-size: 1.2rem; margin-bottom: 12px; color: var(--dark-bg); transition: 0.3s; }
+.project:hover h3 { color: var(--primary-color); }
+.p-result { font-size: 1rem; margin-bottom: 10px; color: var(--accent-color); font-weight: bold; }
+.p-desc { font-size: 0.9rem; color: #666; transition: 0.3s; }
+.project:hover .p-desc { color: #ccc; }
+
+/* 7. Process Section */
+#process { padding: 80px 5%; background: #fff; text-align: center; }
+#process h2 { font-size: 1.8rem; margin-bottom: 50px; font-weight: 800; }
+.process-container { display: flex; flex-direction: column; gap: 20px; max-width: 1200px; margin: 0 auto; }
+.step {
+  display: flex; align-items: center; gap: 25px; text-align: left; padding: 25px;
+  background: var(--dark-bg); border-radius: 15px; color: #fff;
+}
+.step-num { font-size: 2rem; font-weight: 900; color: var(--primary-color); min-width: 50px; }
+.step-content h4 { font-size: 1.2rem; margin-bottom: 5px; color: var(--primary-color); }
+.step-content p { font-size: 0.9rem; opacity: 0.8; }
+
+/* 8. Contact & Footer (간격 조율 버전) */
+#contact {
+  padding: 100px 5% 20px 5%; /* 하단 패딩 축소 */
+  background-color: var(--dark-bg); color: white; text-align: center;
+}
+#contact h2 { font-size: clamp(1.5rem, 5vw, 2.2rem); font-weight: 800; margin-bottom: 20px; }
+#contact p { font-size: 1.1rem; color: #ccc; margin-bottom: 40px; }
+
+.strategy-form { max-width: 650px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px; }
+.strategy-form input[type="text"] {
+  width: 100%; padding: 20px 25px; border-radius: 12px; border: 2px solid transparent;
+  background: rgba(255, 255, 255, 0.1); color: white; font-size: 1.1rem; outline: none; transition: 0.3s;
+}
+.strategy-form input[type="text"]:focus { border-color: var(--primary-color); background: rgba(255, 255, 255, 0.15); }
+
+.cta-btn {
+  width: 100%; padding: 20px; background-color: var(--primary-color); color: var(--dark-bg);
+  border: none; border-radius: 12px; font-size: 1.2rem; font-weight: 800; cursor: pointer; transition: 0.3s;
+}
+.cta-btn:hover { transform: translateY(-3px); background-color: #f0c000; box-shadow: 0 10px 20px rgba(255, 204, 0, 0.3); }
+
+.privacy-note { margin-top: 20px; margin-bottom: 0; font-size: 0.8rem !important; color: #666 !important; }
+
+footer {
+  padding: 20px 5% 40px 5%; /* 상단 여백 최소화 */
+  background-color: var(--dark-bg); text-align: center;
+}
+.footer-email { font-size: 0.95rem; color: var(--primary-color); margin-bottom: 8px; font-weight: 500; }
+.footer-copyright { font-size: 0.8rem; color: #555; letter-spacing: 1px; }
+
+/* 9. Media Queries (반응형 최적화) */
+@media (max-width: 768px) {
+  #trust { padding: 60px 5%; }
+  #problem h2, #trust h2, #process h2 { font-size: 1.7rem; }
+  .hero-content { padding: 40px 20px; }
+  .problem-message { font-size: 1.1rem; width: 100%; }
+}
+
+@media (min-width: 768px) {
+  .strategy-form { flex-direction: row; background: rgba(255, 255, 255, 0.05); padding: 10px; border-radius: 15px; }
+  .strategy-form input[type="text"] { background: transparent; }
+  .cta-btn { width: auto; padding: 15px 40px; white-space: nowrap; }
+}
+
+@media (min-width: 1024px) {
+  .menu-toggle { display: none; }
+  #off-canvas-nav { position: static; width: auto; height: auto; background: none; padding: 0; }
+  #off-canvas-nav .nav-header { display: none; }
+  #off-canvas-nav ul { display: flex; gap: 30px; }
+  #off-canvas-nav ul li { margin-bottom: 0; }
+  #off-canvas-nav ul li a { color: var(--dark-bg); font-size: 1rem; }
+  
+  .hero-content { max-width: 900px; padding: 80px; }
+  #home h2 { font-size: 3.5rem; }
+  
+  .process-container { flex-direction: row; gap: 15px; }
+  .step { flex: 1; flex-direction: column; text-align: center; padding: 30px 15px; }
+  .step-num { margin-bottom: 15px; min-width: auto; }
+}
