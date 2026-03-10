@@ -1,23 +1,17 @@
-/* 1. 변수 및 기본 설정 */
+/* ============================================================
+   TENS ON 브랜드 가이드 및 공통 설정
+   ============================================================ */
 :root {
-  --primary-color: #ffcc00;   /* 메인 골드 (사업자번호 포인트) */
-  --accent-color: #ff4d00;    /* 포인트 레드 (무료 포인트) */
-  --dark-bg: #1a1a2e;         /* 딥 네이비 */
-  --darker-bg: #111122;       /* 더 깊은 네이비 */
-  --text-main: #333;
+  --primary-color: #ffcc00;   /* 메인 골드 (브랜드 핵심 컬러) */
+  --accent-color: #ff4d00;    /* 포인트 레드 (강조 및 알림) */
+  --dark-bg: #1a1a2e;         /* 딥 네이비 (메인 배경) */
+  --darker-bg: #111122;       /* 다크 네이비 (푸터 및 깊은 배경) */
+  --text-main: #333;          /* 기본 텍스트 */
   --white: #ffffff;
-  --gray-light: #f8f9fa;
-}
-.cta-btn.sm-btn {
-  width: auto;          /* 가로 꽉 차지 않게 */
-  min-width: 180px;     /* 최소 너비 보장 */
-  padding: 10px 25px;   /* 안쪽 여백 줄임 */
-  font-size: 0.95rem;   /* 글자 크기 살짝 축소 */
-  border-radius: 8px;   /* 테두리 곡률 조절 */
-  margin: 0 auto;       /* 중앙 정렬 */
-  display: block;       /* 블록 요소화 */
+  --gray-light: #f8f9fa;      /* 보조 배경색 */
 }
 
+/* 기본 초기화 */
 * { 
   margin: 0; 
   padding: 0; 
@@ -33,7 +27,7 @@ body {
   word-break: keep-all; 
 }
 
-/* [공통 포인트 스타일] */
+/* 공통 텍스트 포인트 스타일 */
 .under-line {
   position: relative;
   display: inline-block;
@@ -53,257 +47,272 @@ body {
   z-index: -1;
 }
 
-/* 푸터/콘택트 강조 컬러 */
-.point-red {
-  color: var(--accent-color) !important;
-  font-weight: 800;
-}
+.point-red { color: var(--accent-color) !important; font-weight: 800; }
+.point-yellow { color: var(--primary-color) !important; font-weight: 800; }
 
-.point-yellow {
-  color: var(--primary-color) !important;
-  font-weight: 800;
-}
 
-/* 2. Header & Nav */
+/* ============================================================
+   [2] Header & Navigation
+   ============================================================ */
 header {
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 15px 5%; background: #fff; position: sticky; top: 0; z-index: 1000;
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center;
+  padding: 0 5%;
+  background: #fff; 
+  position: sticky; 
+  top: 0; 
+  z-index: 1000;
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  height: 60px;
 }
 
+header h1 { margin: 0; display: flex; align-items: center; height: 100%; }
 .brand-name { 
-  font-size: 2rem; font-weight: 900; color: var(--primary-color); letter-spacing: -1px;
+  font-size: 1.8rem; font-weight: 900; color: var(--primary-color); 
+  letter-spacing: -1px; line-height: 1; transform: translateY(3px);
 }
 
-.menu-toggle { font-size: 1.5rem; cursor: pointer; color: var(--dark-bg); }
+/* 모바일 메뉴 토글 버튼 */
+.menu-toggle { font-size: 1.5rem; cursor: pointer; color: var(--dark-bg); display: flex; align-items: center; height: 100%; }
 
+/* 오프캔버스 메뉴 스타일 */
 #off-canvas-nav {
   position: fixed; top: 0; right: -300px; width: 300px; height: 100%;
   background: var(--dark-bg); z-index: 2000; transition: 0.4s ease; padding: 40px 20px;
 }
 #off-canvas-nav.active { right: 0; }
-
 .nav-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; }
 .nav-logo { color: var(--primary-color); font-weight: 900; font-size: 1.5rem; }
 #menu-close { background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; }
-
 #off-canvas-nav ul li { margin-bottom: 25px; list-style: none; }
-#off-canvas-nav ul li a { color: white; font-size: 1.2rem; font-weight: 600; transition: 0.3s; }
-#off-canvas-nav ul li a:hover { color: var(--primary-color); }
+#off-canvas-nav ul li a { color: white; font-size: 1.2rem; font-weight: 600; }
 
+/* 배경 흐림 오버레이 */
 .nav-overlay {
   position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-  background: rgba(0,0,0,0.5); visibility: hidden; opacity: 0; transition: 0.3s; z-index: 1500;
-  backdrop-filter: blur(3px);
+  background: rgba(0,0,0,0.5); visibility: hidden; opacity: 0; transition: 0.3s; z-index: 1500; backdrop-filter: blur(3px);
 }
 .nav-overlay.active { visibility: visible; opacity: 1; }
 
-/* 3. Hero Section */
+
+/* ============================================================
+   [3] Hero Section (메인 비주얼)
+   ============================================================ */
 #home {
-  height: 80vh; min-height: 600px;
-  background-color: var(--dark-bg);
-  display: flex; align-items: center; justify-content: center;
-  padding: 20px;
+  position: relative; height: 65vh; min-height: 500px;
+  display: flex; align-items: center; justify-content: center; overflow: hidden;
+  background: url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
 }
 
-.hero-content {
-  max-width: 550px; width: 100%;
-  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-              url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1200&q=80') center/cover;
-  padding: 60px 30px; border-radius: 25px; text-align: center; color: white;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-}
-
+.hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); z-index: 1; }
+.hero-content { position: relative; z-index: 2; width: 90%; max-width: 800px; text-align: center; color: white; padding: 20px; }
 .light-icon { font-size: 3.5rem; color: var(--primary-color); margin-bottom: 20px; }
-#home h2 { font-size: clamp(1.8rem, 5vw, 2.8rem); margin-bottom: 25px; font-weight: 900; line-height: 1.3; }
+#home h2 { font-size: clamp(2.2rem, 8vw, 3.8rem); margin-bottom: 25px; font-weight: 900; line-height: 1.2; }
 #home h2 .highlight { color: var(--primary-color); }
-.hero-content .description { font-size: 1.1rem; line-height: 1.6; margin-bottom: 35px; opacity: 0.9; }
+.hero-content .sub-title { font-size: 1.2rem; font-weight: 600; margin-bottom: 10px; color: var(--primary-color); }
+.hero-content .description { font-size: clamp(1rem, 4vw, 1.25rem); line-height: 1.6; margin-bottom: 40px; opacity: 0.95; }
 
-.hero-btn {
-  display: inline-block; padding: 18px 50px; 
-  background: var(--primary-color); color: var(--dark-bg); 
-  border-radius: 60px; font-weight: 900; font-size: 1.1rem;
-  transition: 0.3s ease; box-shadow: 0 4px 15px rgba(255, 204, 0, 0.3);
-}
-.hero-btn:hover { transform: translateY(-5px); background: #f0c000; box-shadow: 0 8px 25px rgba(255, 204, 0, 0.4); }
+/* 히어로 섹션 버튼 그룹 */
+.hero-btn-group { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-top: 10px; }
+.hero-btn { display: inline-block; padding: 18px 40px; border-radius: 60px; font-weight: 900; font-size: 1.1rem; transition: 0.3s ease; }
+.hero-btn.kakao { background: var(--primary-color); color: var(--dark-bg); box-shadow: 0 4px 15px rgba(255, 204, 0, 0.3); }
+.hero-btn.check { background: rgba(255, 255, 255, 0.9); color: var(--dark-bg); }
+.hero-btn.check .on-red { color: #ff0000; font-weight: 900; }
+.hero-btn:hover { transform: translateY(-4px); opacity: 0.8; }
 
-/* --- 4~7 섹션 간격 축소 조절 (Padding: 60px, Margin-bottom: 30px) --- */
 
-/* 4. Trust Section */
-#trust { padding: 60px 5%; background-color: var(--white); text-align: center; }
-#trust h2 {
-  font-size: 2.2rem; font-weight: 800; margin-bottom: 30px; color: var(--dark-bg);
-  position: relative; display: inline-block;
-}
-#trust h2::after { display: none !important; }
-
-.trust-container {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px; max-width: 1100px; margin: 0 auto;
-}
-.trust-container div {
-  padding: 40px 20px; background: #fdfdfd; border: 1px solid #eee; border-radius: 15px;
-  font-size: 1.1rem; font-weight: 700; color: var(--dark-bg); transition: 0.3s ease;
-  display: flex; flex-direction: column; align-items: center; box-shadow: 0 5px 15px rgba(0,0,0,0.02);
-}
-.trust-container div:hover { transform: translateY(-10px); border-color: var(--primary-color); box-shadow: 0 15px 30px rgba(0,0,0,0.08); }
-.trust-container div::before { content: "✔"; display: block; font-size: 1.8rem; color: var(--primary-color); margin-bottom: 15px; }
-
-/* 5. Problem Section */
+/* ============================================================
+   [4] Problem Section (문제 제기)
+   ============================================================ */
 #problem { padding: 60px 5%; background-color: #fcfcfc; text-align: center; }
-#problem h2 { font-size: 2rem; font-weight: 800; margin-bottom: 30px; color: var(--dark-bg); }
-#problem ul { list-style: none; max-width: 700px; margin: 0 auto 30px; text-align: left; }
+#problem h2 { font-size: 2.2rem; font-weight: 800; margin-bottom: 40px; color: var(--dark-bg); }
+#problem ul { list-style: none; max-width: 500px; margin: 0 auto 30px; padding: 0; text-align: left; }
 #problem ul li {
-  padding: 15px 20px; margin-bottom: 15px; background: #fff;
+  padding: 18px 20px; margin-bottom: 15px; background: #fff;
   border-left: 5px solid var(--primary-color); border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05); font-size: 1.1rem; color: #555; transition: 0.3s;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05); font-size: 1.1rem; color: #555;
 }
-#problem ul li::before { content: "✕ "; color: var(--accent-color); font-weight: bold; margin-right: 10px; }
-#problem ul li:hover { transform: translateX(10px); }
-.problem-message {
-  font-size: 1.3rem; line-height: 1.6; color: var(--dark-bg); background: var(--primary-color);
-  display: inline-block; padding: 15px 35px; border-radius: 50px; font-weight: 700;
-}
-.problem-message strong { text-decoration: underline; color: var(--accent-color); }
+.problem-message-box { display: inline-block; padding: 25px 40px; background: var(--dark-bg); border-radius: 20px; margin-top: 10px; }
+.problem-message { font-size: 1.3rem; color: #fff !important; margin: 0; }
+.impact-text { font-size: 1.9rem; font-weight: 900; color: var(--primary-color); }
 
-/* 6. Success Projects */
-#projects { padding: 60px 5%; background: var(--gray-light); }
-#projects h2 { font-size: 1.8rem; margin-bottom: 30px; text-align: center; font-weight: 800; }
-.project-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+
+/* ============================================================
+   [5] Trust Section (신뢰성 지표)
+   ============================================================ */
+#trust { padding: 80px 5%; background-color: #ffffff; text-align: center; }
+#trust h2 { font-size: 2.2rem; font-weight: 800; margin-bottom: 50px; color: var(--dark-bg); }
+.trust-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; }
+.trust-container div {
+  padding: 30px 20px; background: #fff; border: 2px solid #f0f0f0; border-radius: 15px;
+  font-size: 1.1rem; font-weight: 700; color: #333; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: 0.3s;
+}
+.trust-container div:hover { border-color: var(--primary-color); transform: translateY(-5px); }
+.trust-container div::before { content: "●"; color: var(--primary-color); font-size: 0.8rem; margin-bottom: 12px; }
+
+
+/* ============================================================
+   [6] Success Projects (포트폴리오 호버 효과)
+   ============================================================ */
+#projects { padding: 100px 5%; background: var(--gray-light); }
+#projects h2 { font-size: 2.2rem; margin-bottom: 50px; text-align: center; font-weight: 800; }
+.project-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto; }
 .project {
-  position: relative; background: white; padding: 30px; border-radius: 20px;
+  position: relative; background: white; padding: 40px 30px; border-radius: 20px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.4s; overflow: hidden; z-index: 1;
 }
 .project-image {
   position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-  background-size: cover; background-position: center; opacity: 0;
-  transform: scale(1.1); transition: 0.4s; z-index: -1;
+  background-size: cover; background-position: center; opacity: 0; transition: 0.4s; z-index: -1;
 }
-.project::after { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); opacity: 0; transition: 0.4s; z-index: -1; }
-.project:hover { transform: translateY(-10px); color: white; }
+.project::after { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); opacity: 0; transition: 0.4s; z-index: -1; }
+.project:hover { color: white; }
 .project:hover .project-image, .project:hover::after { opacity: 1; }
-.project:hover .project-image { transform: scale(1); }
-.project h3 { font-size: 1.2rem; margin-bottom: 12px; color: var(--dark-bg); transition: 0.3s; }
+.project h3 { font-size: 1.3rem; margin-bottom: 12px; color: var(--dark-bg); }
 .project:hover h3 { color: var(--primary-color); }
-.p-result { font-size: 1rem; margin-bottom: 10px; color: var(--accent-color); font-weight: bold; }
-.p-desc { font-size: 0.9rem; color: #666; transition: 0.3s; }
+.p-result { font-size: 1.1rem; margin-bottom: 10px; color: var(--accent-color); font-weight: bold; }
+.p-desc { font-size: 0.95rem; color: #666; }
 .project:hover .p-desc { color: #ccc; }
 
-/* 7. Process Section */
-#process { padding: 60px 5%; background: #fff; text-align: center; }
-#process h2 { font-size: 1.8rem; margin-bottom: 30px; font-weight: 800; }
-.process-container { display: flex; flex-direction: column; gap: 20px; max-width: 1200px; margin: 0 auto; }
+
+/* ============================================================
+   [7] Process Section (진행 프로세스 상세)
+   ============================================================ */
+#process { padding: 100px 5%; background-color: #ffffff; text-align: center; }
+#process h2 { font-size: 2.5rem; font-weight: 800; margin-bottom: 60px; color: var(--dark-bg); }
+.process-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1300px; margin: 0 auto; }
 .step {
-  display: flex; align-items: center; gap: 25px; text-align: left; padding: 25px;
-  background: var(--dark-bg); border-radius: 15px; color: #fff;
+  background: #f2f2f2; padding: 60px 40px; border: 2px solid #d1d1d1; border-radius: 25px;
+  text-align: center; transition: 0.3s; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 320px;
 }
-.step-num { font-size: 2rem; font-weight: 900; color: var(--primary-color); min-width: 50px; }
-.step-content h4 { font-size: 1.2rem; margin-bottom: 5px; color: var(--primary-color); }
-.step-content p { font-size: 0.9rem; opacity: 0.8; }
+.step:hover { transform: translateY(-12px); background: #ffffff; border-color: var(--primary-color); box-shadow: 0 20px 40px rgba(0,0,0,0.12); }
+.step-num { font-size: 2rem; font-weight: 900; color: var(--primary-color); margin-bottom: 25px; }
+.step-content h4 { font-size: 1.7rem; font-weight: 800; color: var(--dark-bg); margin-bottom: 18px; line-height: 1.3; }
+.step-content p { font-size: 1.2rem; color: #333; line-height: 1.7; margin: 0; }
 
-/* 8. Contact & Footer (간격 80px 유지하여 강조) */
-#contact {
-  padding: 80px 5% 20px 5%;
-  background-color: var(--dark-bg); color: white; text-align: center;
-}
-#contact h2 { font-size: clamp(1.5rem, 5vw, 2.2rem); font-weight: 800; margin-bottom: 20px; }
-#contact p { font-size: 1.1rem; color: #ccc; margin-bottom: 40px; }
 
-.strategy-form { max-width: 650px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px; }
-.strategy-form input[type="text"] {
-  width: 100%; padding: 20px 25px; border-radius: 12px; border: 2px solid transparent;
+/* ============================================================
+   [8] Contact Section (DB 수집 폼)
+   ============================================================ */
+#contact { padding: 80px 5% 40px 5%; background-color: var(--dark-bg); color: white; text-align: center; }
+#contact h2 { font-size: clamp(1.8rem, 5vw, 2.2rem); font-weight: 800; margin-bottom: 20px; }
+#contact p { font-size: 1.15rem; color: #ccc; margin-bottom: 40px; }
+.special-cta-container { max-width: 650px; margin: 60px auto 30px; padding: 45px 20px 25px; background: rgba(255, 255, 255, 0.05); border: 2px dashed rgba(255, 204, 0, 0.5); border-radius: 20px; position: relative; }
+
+/* 컨택트 섹션 상단 배지 애니메이션 */
+.cta-badge { position: absolute; top: -22px; left: 50%; transform: translateX(-50%); background: var(--accent-color); color: #fff; padding: 8px 25px; border-radius: 50px; font-weight: 800; animation: bounce 2s infinite; }
+@keyframes bounce { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(-5px); } }
+
+/* 신청 폼 스타일 */
+.strategy-form { max-width: 500px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px; }
+.strategy-form input {
+  width: 100%; padding: 20px; border-radius: 12px; border: 2px solid transparent;
   background: rgba(255, 255, 255, 0.1); color: white; font-size: 1.1rem; outline: none; transition: 0.3s;
 }
-.strategy-form input[type="text"]:focus { border-color: var(--primary-color); background: rgba(255, 255, 255, 0.15); }
+.strategy-form input:focus { border-color: var(--primary-color); background: rgba(255, 255, 255, 0.15); }
 
-.cta-btn {
-  width: 100%; padding: 20px; background-color: var(--primary-color); color: var(--dark-bg);
-  border: none; border-radius: 12px; font-size: 1.2rem; font-weight: 800; cursor: pointer; transition: 0.3s;
-}
+/* 신청 버튼 */
+.cta-btn { width: 100%; padding: 20px; background-color: var(--primary-color); color: var(--dark-bg); border: none; border-radius: 12px; font-size: 1.25rem; font-weight: 800; cursor: pointer; transition: 0.3s; }
 .cta-btn:hover { transform: translateY(-3px); background-color: #f0c000; box-shadow: 0 10px 20px rgba(255, 204, 0, 0.3); }
 
-.privacy-note { margin-top: 20px; margin-bottom: 0; font-size: 0.8rem !important; color: #666 !important; }
 
-footer {
-  padding: 20px 5% 40px 5%;
-  background-color: var(--dark-bg); text-align: center;
-}
-.footer-email { font-size: 0.95rem; color: var(--primary-color); margin-bottom: 8px; font-weight: 500; }
-.footer-email i { margin-right: 8px; }
-.footer-copyright { font-size: 0.8rem; color: #555; letter-spacing: 1px; }
-
-/* Contact 섹션 내 특별 컨테이너 */
-.special-cta-container {
-  max-width: 650px; /* 기존 strategy-form 너비와 맞춤 */
-  margin: 60px auto 30px;
-  padding: 45px 20px 25px;
-  background: rgba(255, 255, 255, 0.05); /* 어두운 배경에 어울리는 은은한 박스 */
-  border: 2px dashed rgba(255, 204, 0, 0.5); /* 기존 노란색 포인트 활용 */
-  border-radius: 20px;
-  position: relative;
-  text-align: center;
+/* ============================================================
+   [9] Floating CTA Button (고정형 버튼)
+   ============================================================ */
+.floating-cta {
+  position: fixed;
+  right: 25px;
+  bottom: 30px;
+  z-index: 9999; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none !important;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* 최상단 배지 (Contact 섹션 강조형) */
-.cta-badge {
-  position: absolute;
-  top: -22px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--accent-color); /* 포인트 레드 */
+.floating-content {
+  background: var(--primary-color);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 25px rgba(255, 204, 0, 0.4);
+  color: var(--dark-bg);
+  border: 2px solid #fff;
+}
+
+.floating-content i { font-size: 1.5rem; margin-bottom: 4px; }
+.floating-content span { font-size: 0.85rem; font-weight: 800; letter-spacing: -0.5px; }
+
+.floating-badge {
+  background: var(--accent-color);
   color: #fff;
-  padding: 8px 25px;
-  border-radius: 50px;
-  font-size: 1rem;
-  font-weight: 800;
-  box-shadow: 0 5px 15px rgba(255, 77, 0, 0.4);
-  z-index: 10;
-  white-space: nowrap;
-  animation: bounce 2s infinite;
+  font-size: 0.75rem; font-weight: 900;
+  padding: 3px 10px; border-radius: 20px;
+  margin-bottom: -10px; z-index: 2;
+  box-shadow: 0 3px 10px rgba(255, 77, 0, 0.3);
 }
 
+.floating-cta:hover { transform: translateY(-8px) scale(1.05); }
+.floating-cta:hover .floating-content { background-color: #fff; border-color: var(--primary-color); color: var(--primary-color); }
 
-/* 애니메이션 정의 */
-@keyframes bounce {
-  0%, 100% { transform: translateX(-50%) translateY(0); }
-  50% { transform: translateX(-50%) translateY(-5px); }
-}
 
-/* 모바일 대응 */
-@media (max-width: 768px) {
-  .special-cta-container {
-    margin-top: 50px;
-    padding: 35px 15px 20px;
-  }
-  .shiny-highlight-box .btn-text { font-size: 1.3rem; }
-  .cta-badge { font-size: 0.9rem; top: -18px; }
-}
+/* ============================================================
+   [10] Footer
+   ============================================================ */
+footer { padding: 40px 5%; background-color: var(--dark-bg); text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
+.footer-email { font-size: 1rem; color: var(--primary-color); margin-bottom: 10px; }
+.footer-copyright { font-size: 0.85rem; color: #555; }
 
-/* 9. Media Queries (반응형 간격 더 축소) */
-@media (max-width: 768px) {
-  #trust, #problem, #projects, #process { padding: 40px 5%; }
-  #problem h2, #trust h2, #process h2 { font-size: 1.6rem; margin-bottom: 20px; }
-  .hero-content { padding: 40px 20px; }
-  .problem-message { font-size: 1.1rem; width: 100%; }
-  
-  .under-line::after {
-    height: 10px;
-    bottom: 4px;
-  }
-}
 
+/* ============================================================
+   [11] Responsive Media Queries (데스크탑)
+   ============================================================ */
 @media (min-width: 1024px) {
   .menu-toggle { display: none; }
-  #off-canvas-nav { position: static; width: auto; height: auto; background: none; padding: 0; }
+  #off-canvas-nav { position: static; width: auto; height: 100%; background: none; padding: 0; display: flex; align-items: center; }
   #off-canvas-nav .nav-header { display: none; }
-  #off-canvas-nav ul { display: flex; gap: 30px; }
-  #off-canvas-nav ul li { margin-bottom: 0; }
+  #off-canvas-nav ul { display: flex; gap: 30px; margin: 0; padding: 0; align-items: center; }
+  #off-canvas-nav ul li { margin-bottom: 0; transform: translateY(2px); }
   #off-canvas-nav ul li a { color: var(--dark-bg); font-size: 1rem; }
+
+  /* Problem 가로 정렬 */
+  #problem ul { max-width: 1200px; display: flex; justify-content: center; gap: 20px; text-align: center; }
+  #problem ul li { flex: 1; margin-bottom: 0; min-height: 140px; border-left: none; border-top: 5px solid var(--primary-color); }
+  .problem-message-box { min-width: 600px; }
+
+  /* Trust 가로 정렬 */
+  .trust-container { grid-template-columns: repeat(4, 1fr); }
+}
+
+
+/* ============================================================
+   [12] Responsive Media Queries (모바일)
+   ============================================================ */
+@media (max-width: 768px) {
+  #home { height: 300px !important; min-height: 550px; }
+  .hero-btn { padding: 12px 25px !important; min-width: 140px !important; font-size: 1.1rem !important; }
   
-  .hero-content { max-width: 900px; padding: 80px; }
-  #home h2 { font-size: 3.5rem; }
-  
-  .process-container { flex-direction: row; gap: 15px; }
-  .step { flex: 1; flex-direction: column; text-align: center; padding: 30px 15px; }
-  .step-num { margin-bottom: 15px; min-width: auto; }
+  #problem ul { width: 100%; }
+  .problem-message-box { width: 100%; padding: 20px; }
+
+  .trust-container { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .trust-container div { padding: 20px 10px; font-size: 0.95rem; }
+
+  /* 프로세스 섹션 모바일 최적화 */
+  .step { padding: 35px 25px; min-height: auto; border-radius: 20px; }
+  .step-num { font-size: 1.4rem; margin-bottom: 12px; }
+  .step-content h4 { font-size: 1.3rem; margin-bottom: 10px; }
+  .step-content p { font-size: 1.05rem; }
+
+  /* 플로팅 버튼 크기 조정 */
+  .floating-cta { right: 15px; bottom: 20px; }
+  .floating-content { width: 70px; height: 70px; }
+
+  #projects, #process, #contact { padding: 60px 7%; }
 }

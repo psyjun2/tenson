@@ -10,6 +10,7 @@
 </head>
 
 <body>
+
   <header>
     <h1><a href="#home" class="brand-name">TENS ON</a></h1>
     <div class="menu-toggle" id="menu-open">
@@ -33,6 +34,7 @@
 
   <main>
     <section id="home">
+      <div class="hero-overlay"></div> 
       <div class="hero-content">
         <div class="light-icon"><i class="fas fa-lightbulb"></i></div>
         <p class="sub-title">12년 실전 마케팅 데이터 기반</p>
@@ -42,22 +44,27 @@
           TENS ON은 팔리는 구조를 <br>
           설계하는 매출 파트너입니다.
         </p>
-        <a href="https://open.kakao.com/o/stsSgP4h" target="_blank" class="hero-btn">카카오톡 상담</a>
+        <div class="hero-btn-group">
+          <a href="https://open.kakao.com/o/stsSgP4h" target="_blank" class="hero-btn kakao">카카오톡 상담</a>
+          <a href="#contact" class="hero-btn check">매출스위치 <span class="on-red">ON</span></a>
+        </div>
       </div>
-      
     </section>
-
+    
     <section id="problem">
       <h2>이런 고민 있으신가요?</h2>
       <ul>
         <li>홈페이지는 있지만 문의가 없다</li>
-        <li>블로그는 하는데 매출과 연결되지 않는다</li>
+        <li>블로그는 하는데 <br> 매출과 연결되지 않는다</li>
         <li>광고비는 쓰지만 효과를 모르겠다</li>
         <li>마케팅을 맡겼는데 결과가 없다</li>
       </ul>
-      <p class="problem-message">
-        문제는 마케팅이 아니라 <strong>매출 구조</strong>입니다.
-      </p>
+      <div class="problem-message-box">
+        <p class="problem-message">
+          문제는 마케팅이 아니라
+          <span class="impact-text">매출 구조</span>입니다.
+        </p>
+      </div>
     </section>
 
     <section id="trust">
@@ -69,21 +76,8 @@
         <div>데이터 기반 성장 설계</div>
       </div>
     </section>
-   <div style="text-align: center; margin: 30px 0;">
-  <button class="cta-btn" 
-          style="width: auto; min-width: 240px; padding: 15px 40px; 
-                 font-size: 1.1rem; font-weight: 800; border-radius: 50px; 
-                 border: none; color: #ffffff; cursor: pointer;
-                 background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-                 box-shadow: 0 0 15px rgba(15, 52, 96, 0.4), 0 0 5px rgba(255, 204, 0, 0.2);
-                 transition: all 0.3s ease;
-                 display: inline-flex; align-items: center; justify-content: center; gap: 10px;">
-    <span>무료 전략 프로세스 신청</span>
-    <span style="background: #ffcc00; color: #1a1a2e; padding: 2px 8px; border-radius: 10px; font-size: 0.75rem; font-weight: 900;">FREE</span>
-  </button>
-  </div>
 
-<section id="projects">
+    <section id="projects">
       <h2>Success Projects</h2>
       <div class="project-container">
         <article class="project p1">
@@ -94,7 +88,6 @@
             <p class="p-desc">오프라인 제조사에 네이버 SEO 도입. 월 문의 10건 이상 확보하며 매출 2억 원의 신화!</p>
           </div>
         </article>
-        
         <article class="project p2">
           <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=800&q=80');"></div>
           <div class="project-content">
@@ -103,7 +96,6 @@
             <p class="p-desc">전문직 타겟 DB 추출 월 150개. 블로그 운영 및 랜딩페이지 제작.</p>
           </div>
         </article>
-
         <article class="project p3">
           <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80');"></div>
           <div class="project-content">
@@ -112,7 +104,6 @@
             <p class="p-desc">강남,서초지역 특화 콘텐츠 기획블로그 및 유튜브 운영으로 원생 증가!</p>
           </div>
         </article>
-
         <article class="project p4">
           <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80');"></div>
           <div class="project-content">
@@ -121,7 +112,6 @@
             <p class="p-desc">직접만든 교구장을 SNS마케팅기획.블로그운영.</p>
           </div>
         </article>
-
         <article class="project p5">
           <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80');"></div>
           <div class="project-content">
@@ -132,20 +122,6 @@
         </article>
       </div>
     </section>
-    
-    <div style="text-align: center; margin: 30px 0;">
-    <button class="cta-btn" 
-          style="width: auto; min-width: 240px; padding: 15px 40px; 
-                 font-size: 1.1rem; font-weight: 800; border-radius: 50px; 
-                 border: none; color: #ffffff; cursor: pointer;
-                 background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-                 box-shadow: 0 0 15px rgba(15, 52, 96, 0.4), 0 0 5px rgba(255, 204, 0, 0.2);
-                 transition: all 0.3s ease;
-                 display: inline-flex; align-items: center; justify-content: center; gap: 10px;">
-    <span>무료 전략 프로세스 신청</span>
-    <span style="background: #ffcc00; color: #1a1a2e; padding: 2px 8px; border-radius: 10px; font-size: 0.75rem; font-weight: 900;">FREE</span>
-  </button>
-</div>
 
     <section id="process">
       <h2>TENS ON 진행프로세스</h2>
@@ -153,29 +129,29 @@
         <div class="step">
           <div class="step-num">01</div>
           <div class="step-content">
-            <h4>데이터 진단</h4>
-            <p>12년 마케팅경험으로 철저한 분석.</p>
+            <h4>데이터 진단 미팅</h4>
+            <p>현재 마케팅 흐름과 고객 유입 데이터를 분석해 <br> 숨겨진 매출 기회를 찾아냅니다.</p>
           </div>
         </div>
         <div class="step">
           <div class="step-num">02</div>
           <div class="step-content">
-            <h4>구조 설계</h4>
-            <p>SEO 구축 웹페이지 제작.</p>
+            <h4>매출 구조 설계</h4>
+            <p>검색 유입과 고객 행동 데이터를 기반으로 <br> 팔리는 웹 구조와 콘텐츠 전략을 설계합니다.</p>
           </div>
         </div>
         <div class="step">
           <div class="step-num">03</div>
           <div class="step-content">
-            <h4>매출 점화</h4>
-            <p>타겟팅 매출 스위치 ON.</p>
+            <h4>매출 점화 <br> (스위치 ON)</h4>
+            <p>타겟 고객이 유입되는 채널을 구축 후 <br> 콘텐츠와 마케팅 전략을 실행합니다.</p>
           </div>
         </div>
         <div class="step">
           <div class="step-num">04</div>
           <div class="step-content">
-            <h4>성과 분석</h4>
-            <p>데이터 기반 지속 최적화.</p>
+            <h4>데이터 최적화</h4>
+            <p>유입 데이터와 고객 행동을 분석해 <br> 지속적으로 매출 성과를 유지합니다.</p>
           </div>
         </div>
       </div>
@@ -184,17 +160,27 @@
     <section id="contact">
       <div class="special-cta-container">
         <span class="cta-badge">신청자 만족도 98%</span>
-      <h2>지금 사업의 성장 전략을 <span class="point-red">무료</span>로 확인해보세요</h2>
-      <p>
-        <span class="point-yellow">사업자번호</span>만 입력하면<br>  
-        TENS ON의 데이터 기반 전략 프로세스를 제공합니다
-      </p>
-      <div class="strategy-form">
-        <input type="text" placeholder="사업자번호 입력 (예: 123-45-67890)">
-        <button class="cta-btn">무료 전략 프로세스 신청</button>
+        <h2>지금 사업의 성장 전략을 <br> <span class="point-red">무료</span>로 확인해보세요</h2>
+        <p>
+          <span class="point-yellow">사업자번호와 연락처</span>만 입력하면<br>  
+          TENS ON의 데이터 기반 전략 프로세스를 제공합니다.
+        </p>
+        <div class="strategy-form">
+          <input type="text" name="biz_no" placeholder="사업자번호 입력 (예: 123-45-67890)">
+          <input type="tel" name="phone" placeholder="핸드폰 번호 입력 (예: 010-1234-5678)">
+          <button class="cta-btn">무료 전략 프로세스 신청</button>
+        </div>
       </div>
     </section>
   </main>
+
+  <a href="#contact" class="floating-cta" id="floating-btn">
+    <span class="floating-badge">무료</span>
+    <div class="floating-content">
+      <i class="fas fa-paper-plane"></i>
+      <span>전략 신청</span>
+    </div>
+  </a>
 
   <footer>
     <div class="footer-content">
@@ -204,11 +190,24 @@
   </footer>
 
   <script>
+    // 네비게이션 메뉴 제어
     const nav = document.getElementById('off-canvas-nav');
     const overlay = document.getElementById('nav-overlay');
+    const floatingBtn = document.getElementById('floating-btn');
+
     document.getElementById('menu-open').onclick = () => { nav.classList.add('active'); overlay.classList.add('active'); }
     document.getElementById('menu-close').onclick = () => { nav.classList.remove('active'); overlay.classList.remove('active'); }
     overlay.onclick = () => { nav.classList.remove('active'); overlay.classList.remove('active'); }
+
+    // 플로팅 버튼 스크롤 시 등장/소멸 제어
+    window.addEventListener('scroll', function() {
+      // 스크롤이 400px 이상 내려갔을 때만 'show' 클래스 추가 (CSS에 .show 설정 필요)
+      if (window.scrollY > 400) {
+        floatingBtn.classList.add('show');
+      } else {
+        floatingBtn.classList.remove('show');
+      }
+    });
   </script>
 </body>
 </html>
